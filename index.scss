@@ -17,7 +17,7 @@
         left:(200-$newSize/2);
         z-index:7-$i;
         @if($i==1){
-          margin-left:270px;
+          margin-left:480px;
         }
         @else{
           margin-left:-6px-1*$i;

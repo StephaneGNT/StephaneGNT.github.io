@@ -1,0 +1,104 @@
+@mixin ring($size,$color) {
+    width: $size;
+    height: $size;
+
+    border: solid;
+    border-color:$color;
+    border-width: $size/10;
+    border-radius: 50%;
+    box-shadow: $size/20 $size/20 $size/20 darken($color,15);
+}
+
+@for $i from 1 through 6 {
+    .greySerie-#{$i} {
+        $newSize:10px+5*$i;
+        @include ring($newSize, grey);
+        position:"relative";
+        left:(200-$newSize/2);
+        z-index:7-$i;
+        @if($i==1){
+          margin-left:270px;
+        }
+        @else{
+          margin-left:-6px-1*$i;
+        }
+    }
+}
+    
+.smallOrange{
+    @include ring(20px,orange);
+    margin: 0 15px;
+}
+.bigYellow{
+  @include ring(60px, yellow);
+  margin: 0 15px;
+}
+
+    
+@font-face{
+    font-family: "TitleFont";
+    src: url("police/titlePolice.ttf")format("truetype");
+}
+@font-face{
+    font-family: "TextFont";
+    src: url('police/textPolice.ttf')format("truetype");
+}
+@font-face{
+    font-family: "SymbolFont";
+    src: url('police/symbolPolice.ttf')format("truetype");
+}
+body{
+    font-family: "TextFont";
+}
+.row{
+    margin: 0;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-size: 30px;
+}
+.differentRow{
+    justify-content:flex-start;
+}
+.navbar{
+    background-color: orangered;
+}
+.navbar-collapse{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+}
+@media screen and (max-width: 992px) {
+    .navbar-brand{
+        width: 65%;
+    }
+}
+@media screen and (min-width: 993px) {
+    .navbar-brand{
+        width: 20%;
+    }
+}
+.navbar-brand img{
+    width: 100%;
+}
+.nav-item a{
+    font-family: "TitleFont";
+    font-size: 0.8em;
+}
+.active{
+    text-decoration: underline;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+    background-color: orangered;
+    padding: 15px;
+}
+.innerLinks a, #outterLinks a{
+    color: white;
+}
+#outterLinks a{
+    font-weight: bold;
+}
